@@ -2,8 +2,6 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Constants } from 'expo';
 
-import AssetExample from './components/AssetExample';
-
 export default class App extends React.Component {
   render() {
     return (
