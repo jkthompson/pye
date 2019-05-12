@@ -4,9 +4,18 @@ import { Text, View } from 'react-native';
 import { StyleSheet } from 'react-native';
 
 export default class Starter extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { isStarted: false };
+  }
   
-  _onPressStart() {
-    Alert.alert('You tapped the button!')
+  _onPressStart = () => {
+    //this.setState({ isStarted: !this.state.isStarted})
+    console.log('button press')
+    this.setState({ 
+      isStarted: !this.state.isStarted });
+    console.log(this.state.isStarted.toString())
   }
   
   render() {
@@ -15,7 +24,7 @@ export default class Starter extends React.Component {
         <Button
           buttonStyle={styles.mybutton}
           onPress={this._onPressStart}
-          title="Start"
+          title={this.state.isStarted.toString()}
           accessibilityLabel="Learn more about this button"
         />
       </View>

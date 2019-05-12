@@ -4,6 +4,10 @@ import { Camera, Permissions } from 'expo';
 import styles from './styles';
 
 export default class CameraExample extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   state = {
     hasCameraPermission: null,
   };
@@ -12,8 +16,14 @@ export default class CameraExample extends React.Component {
     const { status } = await Permissions.askAsync(Permissions.CAMERA);
     this.setState({ hasCameraPermission: status === 'granted' });
   }
+  
+  startRecord = () => {
+    if (this.camera) {
+      this.camera.recordAsync({ maxDuration: 1800, maxFileSize: 1000000000 });
+    }
+  };
 
-    render() {
+  render() {
     const { hasCameraPermission } = this.state;
     if (hasCameraPermission === null) {
       return <View />;
