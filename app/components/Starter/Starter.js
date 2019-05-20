@@ -7,15 +7,6 @@ export default class Starter extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { isStarted: false };
-  }
-  
-  _onPressStart = () => {
-    //this.setState({ isStarted: !this.state.isStarted})
-    console.log('button press')
-    this.setState({ 
-      isStarted: !this.state.isStarted });
-    console.log(this.state.isStarted.toString())
   }
   
   render() {
@@ -23,8 +14,8 @@ export default class Starter extends React.Component {
       <View style={styles.bottom}>
         <Button
           buttonStyle={styles.mybutton}
-          onPress={this._onPressStart}
-          title={this.state.isStarted.toString()}
+          onPress={this.props.onPressStart}
+          title={this.props.isStarted.toString()}
           accessibilityLabel="Learn more about this button"
         />
       </View>
